@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function Test() {}
+        Test.assert = function (act, exp) {
+            if (exp !== act) {
+                console.log('Did not pass test - Expected ' + exp + ' got ' + act);
+            }
+        };
+
+        // function schematester
+        function Schema(schema) {
+            this.schema = schema;
+            this.sortedKeys = Object.keys(schema).sort();
+        }
+
+        var schema = new Schema({
+            name: 'string',
+            id: 1,
+            date: new Date()
+        });
+        var x = {name: 'Jui'};
+
+        function Union(x,y){
+            var a = Object.keys(x).sort();
+            for(var prop in y){
+                if(a.indexOf(prop) === -1){
+                    a.push(prop);
+                }
+            }
+            return a;
+        }
+
+        console.log('Union: ' + Union(schema.schema,x));
+
+        function Intersection(x,y){
+            var a = [];
+            for(var propX in x) {
+                for (var propY in y) {
+                    if (propX === propY) {
+                        a.push(propX);
+                    }
+                }
+            }
+            return a.sort();
+        }
+
+        console.log('Intersection: ' + Intersection(schema.schema,x));
+
+
+        Schema.prototype.test = function (s) {
+            var u = Union(this.schema,s);
+            var i =Intersection(this.schema,s);
+            for(var j = 0;j < u.length; j++){
+                if(i.indexOf(u[j]) === -1){
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        Test.assert(schema.test({
+            name: 'Jui'
+        }), false);
+        Test.assert(schema.test({
+            name: 'Jui',
+            id: 2,
+            date: new Date()
+        }),true);
+        console.log('Done with the tests.');
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

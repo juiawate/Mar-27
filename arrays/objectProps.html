@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         Object  ->  Extensible
+         Object  ->  Property    ->  writable
+         ->  enumerable
+         ->  configurable
+         */
+        var o = {
+            name: 'Jui'
+        };
+        console.log(o.name);
+        Object.preventExtensions(o);
+        console.log('Is object extensible? ' + Object.isExtensible(o) ? 'Yes' : 'No');
+
+        Object.defineProperty(o,'name',{
+            writable:false
+        });
+        o.name = 'Awate';
+        o.id = 'ssadser445';
+        console.log(o.name);
+        console.log(o.id);
+        print('o.name');
+
+        function print(expr){
+            console.log(expr, eval(expr));
+        };
+
+        function enumerable(obj){
+            for(var prop in obj){
+                Object.defineProperty(obj, prop,{
+                    enumerable:false
+                });
+                console.log(prop);
+                console.log(obj.propertyIsEnumerable(prop));
+            }
+        };
+        enumerable(o);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

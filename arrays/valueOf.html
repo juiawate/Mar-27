@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function Constr(val){
+            this.val = val;
+        }
+
+        Constr.prototype.valueOf = function(){
+            return this.val;
+        };
+
+        var x = new Constr(10);
+        var y = new Constr(20);
+
+        console.log(x + y);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
