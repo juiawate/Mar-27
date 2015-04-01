@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .square{
+            width: 20em;
+            height: 20em;
+            border: 1px solid black;
+            position: relative;
+        }
+        .ball{
+            width: 2em;
+            height: 2em;
+            border-radius: 100%;
+            background-color: blue;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ball = document.querySelector('div.ball');
+            var up = document.querySelector('div.square').clientHeight - ball.clientHeight,
+                    down = 0;
+            var i = 0, j = 0;
+            var upwards = false;
+            var interval = setInterval(function () {
+                if(upwards) {
+                    if(i < down){
+                        upwards = false;
+                    } else {
+                        ball.style.top = i + 'px';
+                        ball.style.left = j + 'px';
+                        //j = j + 0.2;
+                        i = velocityUp(i,1);
+                        j = velocityDown(j,0.8);
+                        //console.log('down: ' + j);
+                    }
+                    //i--;
+
+                }else{
+                    if(i > up){
+                        upwards = true;
+                        down += 30;
+                        if (up <= down) {
+                            clearInterval(interval);
+                        }
+                    } else {
+                        ball.style.top = i + 'px';
+                        ball.style.left = j + 'px';
+                        //j = j + 0.2;
+                        i = velocityDown(i,1);
+                        j = velocityDown(j,0.8);
+                        console.log('up: '+ j);
+                    }
+                    //i++;
+
+                }
+            },1);
+
+        });
+
+        function velocityDown(u,t){
+            return ((u * t) + (0.5 * 5 * t * t));
+        }
+        function velocityUp(v,t){
+            return ((v * t) - (0.5 * 5 * t * t));
+        }
+
+
+    </script>
+
+</head>
+<body>
+<div class ="square">
+    <div class = "ball">
+
+    </div>
+</div>
+
+</body>
+</html>
