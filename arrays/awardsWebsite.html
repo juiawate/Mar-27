@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Awwwards - Website Awards - Best Web Design Trends</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            color: #313131;
+            font-family: 'sans-serif';
+            font-size: 14px;
+            background-color: #e1e3e4;
+        }
+        #header{
+            display: block;
+            position: relative;
+        }
+        .top{
+            background-color: #f4f4f4;
+            padding: 1em;
+            color: #A6ABAB;
+        }
+        .top > h1 {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .top > ul {
+            position: absolute;
+            float: right;
+            right: 1em;
+            display: block;
+            top: 1em;
+        }
+        .top > ul li {
+            display: inline;
+        }
+        .top a {
+            color: black;
+        }
+
+        .main{
+            height: 3em;
+            padding: 1em;
+            border: 1px solid lightgray;
+            clear: both;
+            content: "";
+            position: relative;
+        }
+        .logo > img{
+            float: left;
+            width: 10em;
+            height: 2em;
+            position: absolute;
+        }
+        .main > ul > li.active{
+            border-left: 0;
+            font-weight: bold;
+        }
+        .main > ul{
+            float:right;
+            position: absolute;
+            top: 0em;
+            right: 0;
+        }
+        .main > ul > li{
+            border-left: 1px solid lightgray;
+            cursor: pointer;
+            display: inline;
+            padding: 1em 1em;
+            float:left;
+            position: relative;
+            line-height: 3em;
+        }
+        .submit{
+            border: 1px solid #3c948b;
+            background-color: #3c948b;
+            color: white;
+        }
+        .main > ul > li.submit {
+            padding: 1em 2em;
+        }
+        .search{
+            padding: 0 !important;
+        }
+        .searchText{
+            visibility: hidden;
+            width: 10em;
+            float:right;
+            position: absolute;
+            right: 0;
+        }
+        .text{
+            float: right;
+            right: 3.4em;
+            width: 100%;
+            height: 4em;
+        }
+        .search > img{
+            width: 5.3em;
+            float: right;
+        }
+
+        #section {
+            clear:both;
+            position: relative;
+
+        }
+
+        .outerCircle{
+            height: 10em;
+            width: 10em;
+            border: 1px solid #ffb79a;  /*  #ffb79a #DF6C4F */
+            border-radius: 100%;
+
+            background-color: #ffb79a;
+            position: absolute;
+        }
+
+        .innerCircle {
+            height: 70%;
+            width: 70%;
+            border: 1px solid #ffb79a;
+            border-radius: 100%;
+            margin: 15%;
+            background-color: #e1e3e4 ;
+        }
+
+        .circleSlice {
+            height: 10em;
+            width: 5em;
+            border: 1px solid #DF6C4F;
+            border-top-right-radius: 5em ;
+            border-bottom-right-radius: 5em;
+            border-left: 0;
+
+            background-color: #DF6C4F;
+            position: absolute;
+            left: 81px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        .innerCircleSlice {
+            height: 70%;
+            width: 70%;
+            border: 1px solid #DF6C4F;
+            border-top-right-radius: 3.5em;
+            border-bottom-right-radius: 3.5em;
+            border-left: 0;
+            background-color: #e1e3e4;
+            box-sizing: border-box;
+            position: absolute;
+            top: 1.5em;
+            overflow: auto;
+        }
+        .shift{
+            transform: rotateZ(30deg);
+            transform-origin: 0% 50%;
+        }
+
+        #footer{
+            clear: both;
+            position: relative;
+            top: 30em;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header">
+    <nav class="top">
+        <h1>
+            The awards for design, creativity and innovation on the Internet
+        </h1>
+        <ul>
+            <li>Are you a member?
+                <a href="http://www.awwwards.com/login" name="register"> Register / Login </a></li>
+        </ul>
+    </nav>
+    <nav class="main">
+        <div class="logo"><img src="http://www.awwwards.com/bundles/tvweb/images/logo.svg"></div>
+        <ul>
+            <li class="active"> HOME </li><li> WINNERS </li><li> NOMINEES </li><li> DIRECTORY </li><li> SHOP </li><li> JOBS </li><li> BLOG </li><li> ABOUT US </li>
+            <li class="submit">SUBMIT YOUR SITE</li>
+            <li class="search"><img src="search.png" alt="search"></li>
+        </ul>
+        <div class="searchText">
+            <form>
+                <input class="text" type="text" name="text">
+            </form>
+        </div>
+    </nav>
+</header>
+
+
+<section id="section">
+    <div>
+        <div class="outerCircle">
+            <div class="innerCircle"></div>
+        </div>
+        <div class="circleSlice shift">
+            <div class="innerCircleSlice"></div>
+
+        </div>
+    </div>
+</section>
+
+
+<footer id="footer">
+    <div>
+        © COPYRIGHT Jui Awate
+    </div>
+</footer>
+</body>
+</html>
