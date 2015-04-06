@@ -74,6 +74,7 @@
             var divs = [];
             for(var i = 0; i < 4;i++){
                 divs[i] = createDiv();
+                divs[i].innerHTML = 'PLAYER '+ (i+1) +'::: <br>';
             }
             var btn = document.querySelector('button');
             btn.addEventListener('click', function (){
@@ -84,10 +85,19 @@
                 d.shuffle();
                 var arr = d.toString();
                 var div = document.querySelectorAll('div.square');
-                for(var i = 0;i < div.length;i++){
-                    div[i].innerHTML = 'PLAYER '+ (i+1) +'::: <br>';
-                    for(var j = 0;j < 13;j++){
-                        div[i].innerHTML = div[i].innerHTML + '<br>' + arr.pop();
+                Array.prototype.forEach.call(div,function (ele,index) {
+                    ele.innerHTML = 'PLAYER '+ (index+1) +'::: <br>';
+                });
+                /*for(var i = 0;i < div.length;i++){
+                 div[i].innerHTML = 'PLAYER '+ (i+1) +'::: <br>';
+                 for(var j = 0;j < 13;j++){
+                 div[i].innerHTML = div[i].innerHTML + '<br>' + arr.pop();
+                 }
+                 }*/
+
+                while(arr.length !== 0){
+                    for(var j = 0; j< div.length;j++){
+                        div[j].innerHTML += '<br>' + arr.pop();
                     }
                 }
             });
@@ -98,6 +108,7 @@
             var div = document.createElement('div');
             div.className = 'square';
             document.body.appendChild(div);
+            return div;
         }
 
     </script>
